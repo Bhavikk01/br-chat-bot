@@ -1,0 +1,17 @@
+{
+  "name": "br_chat_bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon start.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/dialogflow": "^5.4.0",
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
+    "uuid": "^9.0.0"
+  }
+}
