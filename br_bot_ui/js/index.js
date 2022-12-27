@@ -20,8 +20,7 @@ $('#start-record-btn').on('click', function(e) {
 recognition.onresult = (event) => {
   const speechToText = event.results[0][0].transcript;
  document.getElementById("MSG").value= speechToText;
-  insertMessage()
-  fetchmsg(speechToText)
+  insertMessage(speechToText);
 }
 
 $(window).load(function() {
@@ -41,11 +40,8 @@ function updateScrollbar() {
 
 
 
-function insertMessage() {
-  msg = $('.message-input').val();
-  if ($.trim(msg) == '') {
-    return false;
-  }
+function insertMessage(msg) {
+  
   $('<div class="message message-personal">' + msg + '</div>').appendTo($('.mCSB_container')).addClass('new');
   fetchmsg(msg)
 
@@ -55,8 +51,12 @@ function insertMessage() {
 }
 
 document.getElementById("mymsg").onsubmit = (e)=>{
-  e.preventDefault() 
-  insertMessage();
+  e.preventDefault()
+  msg = $('.message-input').val();
+  if ($.trim(msg) == '') {
+    return false;
+  }
+  insertMessage(msg)
 }
 
 function serverMessage(response2) {
